@@ -1,4 +1,4 @@
-# 112. [路径总和](https://leetcode-cn.com/problems/path-sum/solution/lu-jing-zong-he-by-leetcode-solution/)
+# [112. 路径总和](https://leetcode-cn.com/problems/path-sum/solution/lu-jing-zong-he-by-leetcode-solution/)
 `BFS` `递归`
 
 ## 递归
