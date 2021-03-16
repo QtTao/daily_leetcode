@@ -47,18 +47,23 @@ class Solution:
 
     def pathSum(self, root: TreeNode, targetSum: int) -> List[List[int]]:
         """ 递归 """
-        rv = []
+        rv, paths = [], []
 
-        def path_sum_dfs(root: TreeNode, target_sum: int, paths: List[int], rv: List[List[int]]):
-            if root:
-                # 遇到叶子节点，比较路径总和与目标值
-                if not root.left and not root.right:
-                    if target_sum == root.val:
-                        paths.append(root.val)
-                        rv.append(paths)
-                # 每次到达一个节点，创建新列表记录节点值
-                path_sum_dfs(root.left, target_sum - root.val, paths + [root.val], rv)
-                path_sum_dfs(root.right, target_sum - root.val, paths + [root.val], rv)
+        def path_sum_dfs(root: TreeNode, target_sum: int):
+            if not root:
+                return None
+            paths.append(root.val)
+            # 遇到叶子节点，比较路径总和与目标值
+            if not root.left and not root.right:
+                if target_sum == root.val:
+                    # 拷贝当前路径，否则列表最后会被清空
+                    rv.append(paths[:])
+            # 每次访问一个节点，创建新列表记录节点值
+            path_sum_dfs(root.left, target_sum - root.val)
+            path_sum_dfs(root.right, target_sum - root.val)
+            # 这个弹出操作很巧妙，当 root.left 和 root.right 都是空，说明 root 是叶子节点，访问完毕后弹出栈
+            # 继续遍历该叶子节点的父节点的其他子节点
+            paths.pop()
 
-        path_sum_dfs(root, targetSum, [], rv)
+        path_sum_dfs(root, targetSum)
         return rv
