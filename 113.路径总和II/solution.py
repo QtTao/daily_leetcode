@@ -62,7 +62,7 @@ class Solution:
             path_sum_dfs(root.left, target_sum - root.val)
             path_sum_dfs(root.right, target_sum - root.val)
             # 这个弹出操作很巧妙，当 root.left 和 root.right 都是空，说明 root 是叶子节点，访问完毕后弹出栈
-            # 继续遍历该叶子节点的父节点的其他子节点
+            # 继续访问其他兄弟节点
             paths.pop()
 
         path_sum_dfs(root, targetSum)
