@@ -1,4 +1,4 @@
-# 125. [验证回文串](https://leetcode-cn.com/problems/valid-palindrome/solution/yan-zheng-hui-wen-chuan-by-leetcode-solution/)
+# [125. 验证回文串](https://leetcode-cn.com/problems/valid-palindrome/solution/yan-zheng-hui-wen-chuan-by-leetcode-solution/)
 
 `双指针`
 
