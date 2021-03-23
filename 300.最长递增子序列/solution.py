@@ -27,7 +27,7 @@ class Solution:
         return max(dp)
 
     def lengthOfLISGreedy(self, nums: List[int]) -> int:
-        """  贪心 + 二分查找 """
+        """ 贪心 + 二分查找 """
         n = len(nums)
         if n < 2:
             return 1
