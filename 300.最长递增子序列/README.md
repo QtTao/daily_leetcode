@@ -19,7 +19,7 @@
 
 ### 复杂度
 
-- 时间复杂度：O(N2) 双层遍历
+- 时间复杂度：O(N^2) 双层遍历
 - 空间复杂度：O(N) 保持以数组中每个元素结尾的状态
 
 ## [贪心算法 + 二分查找](https://leetcode-cn.com/problems/longest-increasing-subsequence/solution/zui-chang-shang-sheng-zi-xu-lie-dong-tai-gui-hua-e/)
