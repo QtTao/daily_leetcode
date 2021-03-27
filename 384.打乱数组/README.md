@@ -52,5 +52,5 @@
 
 ### 复杂度
 
-时空复杂度与 `Fisher-Yates` 一致
+- 时空复杂度与 `Fisher-Yates` 一致
 
