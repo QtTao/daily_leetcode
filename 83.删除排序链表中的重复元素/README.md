@@ -1,4 +1,4 @@
-# 83. 删除排序链表中的重复元素
+# [83. 删除排序链表中的重复元素](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-list/solution/shan-chu-pai-xu-lian-biao-zhong-de-zhong-49v5/)
 
 ## 一次遍历
 
