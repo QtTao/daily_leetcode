@@ -33,5 +33,5 @@
 
 ### 复杂度
 
-- [时间复杂度](https://en.citizendium.org/wiki/Newton's_method#Computational_complexity): O(logN) 牛顿迭代法的误差在每次迭代都会少至少一半
+- [时间复杂度](https://en.citizendium.org/wiki/Newton's_method#Computational_complexity): O(logN) 这里的 N 为精度位数，不是迭代次数
 - 空间复杂度：O(1)
