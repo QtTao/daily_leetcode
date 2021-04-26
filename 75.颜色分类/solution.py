@@ -31,16 +31,38 @@ class Solution:
             # 完成 idx 对应元素的操作，继续遍历
             idx += 1
 
+    def sortColorsOneScan(self, nums: List[int]) -> None:
+        """ 双指针（前后） """
+        n = len(nums)
+        p0, p1 = 0, 0
+        for idx in range(n):
+            # 先进行 1 的交换
+            if nums[idx] == 1:
+                nums[idx], nums[p1] = nums[p1], nums[idx]
+                # 一次交换后，p1 指针指向 1 的下一个位置
+                p1 += 1
+            # 再进行 0 的交换
+            elif nums[idx] == 0:
+                nums[idx], nums[p0] = nums[p0], nums[idx]
+                # 当 1 指针领先 0 指针，说明在进行 0 的交换后，nums[idx] = 1，将 1 交换到 p1 的位置
+                if p0 < p1:
+                    nums[idx], nums[p1] = nums[p1], nums[idx]
+                # 若 p0 和 p1 指针都发生了元素交换，所以均向前移动
+                # 若只有 p0 指针发生了元素交换，由于 1 应放在 0 的后面，所以两指针也需要向前移动
+                p0 += 1
+                p1 += 1
+
     def sortColorsTwoScan(self, nums: List[int]) -> None:
         """ 单指针（两次遍历） """
         n = len(nums)
         j = 0
+        # 第一次扫描，将 0 交换至数组头部
         for idx in range(n):
             if nums[idx] == 0:
                 nums[j], nums[idx] = nums[idx], nums[j]
                 j += 1
+        # 第二次扫描，将 1 交换至 0 的后面
         for idx in range(j, n):
             if nums[idx] == 1:
                 nums[j], nums[idx] = nums[idx], nums[j]
                 j += 1
-
