@@ -66,3 +66,22 @@ class Solution:
             if nums[idx] == 1:
                 nums[j], nums[idx] = nums[idx], nums[j]
                 j += 1
+
+    def sortColorsNoSwap(self, nums: List[int]) -> None:
+        """ 不交换元素，直接赋值 """
+        # p0 用于标记 0 的出现次数
+        # p1 用于标记 0 和 1 的出现次数
+        p0, p1 = 0, 0
+        for idx in range(len(nums)):
+            # 临时保存 idx 对应的元素
+            num = nums[idx]
+            # 默认设置为 2
+            nums[idx] = 2
+            # 如果 num 是 0 或 1，将 p1 对应元素设 1，同时保证 p1 >= p0
+            if num < 2:
+                nums[p1] = 1
+                p1 += 1
+            # 如果 num 是 0，此前 p0 对应元素设 1，现在重设为 0
+            if num == 0:
+                nums[p0] = 0
+                p0 += 1
