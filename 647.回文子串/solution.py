@@ -49,3 +49,24 @@ class Solution:
                 else:
                     dp[i] = False
         return count
+
+    def countSubstringsCenter(self, s: str) -> int:
+        """ 中心扩展 """
+        ans = 0
+        n = len(s)
+        # 回文中心个数有 2n - 1 个，其中单字符有 n 个，双字符有 n - 1 个
+        for center in range(2 * n - 1):
+            # 关键是找出回文中文的左边界，右边界和中心点的关系
+            # 回文中心的左边界 left 和右边界 right 要么相等（单字符），要么相隔一个位置（双字符），即 left + 1 = right
+            left, right = int(center / 2), int(center / 2 + center % 2)
+            # 注意越界问题
+            while left >= 0 and right < n and s[left] == s[right]:
+                ans += 1
+                # 如果左边界和右边界的字符相同，中心向两边扩展
+                left -= 1
+                right += 1
+        return ans
+
+    def countSubstringManacher(self, s: str) -> int:
+        """ Manacher 算法 """
+        pass
