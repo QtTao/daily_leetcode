@@ -27,7 +27,7 @@ class Solution:
                 # Case 2 j - i = 1，两个相同字符也是回文子串，dp[i][j] = True
                 # Case 2 j - i >= 2，如果 s[i:j + 1] 前后两个字符相同，且 s[i + 1:j] 为回文子串，即 dp[i + 1][j - 1] = True，那么 s[i:j + 1] 也是回文子串，dp[i][j] = True
                 dp[i][j] = (j - i < 2) or dp[i + 1][j - 1]
-                # 如果从 i 到 j 能构成回文串，count + 1
+                # 如果从 i 到 j 能构成回文串，更新最长回文串的长度和左右边界
                 if dp[i][j] and j - i + 1 > max_len:
                     max_len = j - i + 1
                     left, right = i, j
