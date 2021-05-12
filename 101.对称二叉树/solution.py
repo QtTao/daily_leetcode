@@ -38,4 +38,22 @@ class Solution:
 
     def isSymmetricBFS(self, root: TreeNode) -> bool:
         """ BFS """
-        pass
+        if not root:
+            return True
+        queue1, queue2 = [root], [root]
+        while queue1:
+            left, right = queue1.pop(), queue2.pop()
+            # 当左右子结点为空，比较下一个出队的结点
+            if not left and not right:
+                continue
+            # 当一个结点为空，另一个结点非空，或者两结点的值不相同，说明非对称
+            if (not left or not right) or left.val != right.val:
+                return False
+            # 注意结点入队顺序，由于检查的是对称性，所以首先入队的是左结点的左子结点
+            queue1.append(left.left)
+            # 随后是左结点的右子结点，这样在下一个循环中就能比较左结点的左子结点和右结点的右子结点
+            queue1.append(left.right)
+            # 右结点同理
+            queue2.append(right.right)
+            queue2.append(right.left)
+        return True
