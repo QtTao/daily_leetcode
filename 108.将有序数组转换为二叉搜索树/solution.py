@@ -19,6 +19,7 @@
 class Solution:
     def sortedArrayToBST(self, nums: List[int]) -> TreeNode:
         """ DFS """
+
         def dfs(left, right):
             # 当 left 下标大于 right 下标，说明数组已经遍历完毕，直接返回空结点
             if left > right:
@@ -26,9 +27,9 @@ class Solution:
             # 取中间靠左的数字作为根结点
             # 保证每个结点的左右两个子树的高度差的绝对值不超过 1
             mid = (left + right) // 2
-            # 模拟中序遍历
             root = TreeNode(val=nums[mid])
             root.left = dfs(left, mid - 1)
             root.right = dfs(mid + 1, right)
             return root
+
         return dfs(0, len(nums) - 1)
