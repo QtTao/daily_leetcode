@@ -78,10 +78,13 @@ class Solution:
             return length
 
         def in_order_dfs(left: int, right: int) -> TreeNode:
+            """ 中序遍历处理方式很巧妙，需加深理解 """
             if left > right:
                 return None
 
+            # 用来限制左右子树的结点个数
             mid = (left + right) // 2
+            # 创建空的根结点
             root = TreeNode()
             # 遍历链表，模拟中序遍历
             # 先访问左子树
@@ -94,5 +97,5 @@ class Solution:
             root.right = in_order_dfs(mid + 1, right)
             return root
 
-        length = get_length(head)
-        return in_order_dfs(0, length - 1)
+        list_len = get_length(head)
+        return in_order_dfs(0, list_len - 1)
