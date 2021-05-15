@@ -36,7 +36,7 @@ class Solution:
             num = len(queue)
             # 收集每层节点的所有子节点
             for _ in range(num):
-                node = queue.pop(0)            
+                node = queue.pop(0)
                 if node.left:
                     queue.append(node.left)
                 if node.right:
