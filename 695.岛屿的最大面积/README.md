@@ -1,6 +1,6 @@
 # [695. 岛屿的最大面积](https://leetcode-cn.com/problems/max-area-of-island/solution/dao-yu-de-zui-da-mian-ji-by-leetcode-solution/)
 
-`DFS`
+`DFS` `BFS`
 
 ## 深度优先搜索
 
