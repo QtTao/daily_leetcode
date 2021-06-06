@@ -23,7 +23,7 @@ class Solution:
             indegrees[second] += 1
             edges[first].add(second)
 
-        # 先手机所有入度为 0 的课程加入队列中，即没有先修课程的课程
+        # 先收集所有入度为 0 的课程加入队列中，即没有先修课程的课程
         queue = []
         for i in range(numCourses):
             if indegrees[i] == 0:
